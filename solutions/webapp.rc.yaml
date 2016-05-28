@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  labels:
+    version: "2.0"
+  name: webapp-2.0
+spec:
+  replicas: 3
+  selector:
+    name: webapp
+    version: "2.0"
+    role: frontend
+  template:
+    metadata:
+      labels:
+        name: webapp
+        version: "2.0"
+        role: frontend
+    spec:
+      containers:
+      - image: gcr.io/a-egal/webapp
+        name: webapp
+        env:
+        - name: VERSION
+          value: "2.0"
+        ports:
+        - containerPort: 3000
+          name: node-port
+        imagePullPolicy: Always
+        # Liveness healthchecks
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+          initialDelaySeconds: 30
+          timeoutSeconds: 1
+        # Liveness healthchecks
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 3000
+          initialDelaySeconds: 30
+          timeoutSeconds: 1
