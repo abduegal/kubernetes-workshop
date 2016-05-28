@@ -13,4 +13,5 @@ spec:
         image: nginx:1.9.1
         ports:
         - containerPort: 80
-
+      nodeSelector:
+        group: nginx
