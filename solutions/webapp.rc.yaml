@@ -18,7 +18,7 @@ spec:
         role: frontend
     spec:
       containers:
-      - image: gcr.io/a-egal/webapp
+      - image: gcr.io/aegal-kubernetes-workshop/webapp
         name: webapp
         env:
         - name: VERSION
