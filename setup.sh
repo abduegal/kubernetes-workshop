@@ -1,6 +1,8 @@
 # install docker
-curl -fsSL https://get.docker.com -o get-docker.sh
-sh get-docker.sh
+if [ ! -f /usr/bin/docker ]; then
+  curl -fsSL https://get.docker.com -o get-docker.sh
+  sh get-docker.sh
+fi
 
 echo "
 kind: Cluster
