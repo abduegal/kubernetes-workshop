@@ -15,7 +15,7 @@ nodes:
 " > cluster-config.yaml
 
 sudo groupadd docker
-sudo usermod -aG docker $USER
+sudo usermod -aG docker ubuntu
 
 curl -Lo ./kind https://github.com/kubernetes-sigs/kind/releases/download/v0.6.1/kind-$(uname)-amd64
 chmod +x ./kind
