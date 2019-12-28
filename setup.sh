@@ -32,6 +32,7 @@ newgrp docker
 
 mkdir -p /home/ubuntu/.kube
 kind get kubeconfig > /home/ubuntu/.kube/config
+chmod -R 755 /home/ubuntu/.kube/config
 
 echo "
   kind delete cluster --name=omnicore
