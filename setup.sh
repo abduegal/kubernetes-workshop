@@ -14,8 +14,8 @@ nodes:
 - role: worker
 " > cluster-config.yaml
 
-sudo groupadd docker
-sudo usermod -aG docker ubuntu
+groupadd docker
+usermod -aG docker ubuntu
 
 curl -Lo ./kind https://github.com/kubernetes-sigs/kind/releases/download/v0.6.1/kind-$(uname)-amd64
 chmod +x ./kind
@@ -25,7 +25,7 @@ kind create cluster --config=cluster-config.yaml
 
 curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
 chmod +x ./kubectl
-sudo mv ./kubectl /usr/local/bin/kubectl
+mv ./kubectl /usr/local/bin/kubectl
 
 newgrp docker 
 
