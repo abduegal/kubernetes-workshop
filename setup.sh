@@ -36,5 +36,5 @@ kind get kubeconfig > /home/ubuntu/.kube/config
 echo "
   kind delete cluster --name=omnicore
   kind create cluster --name=omnicore --config=/etc/cluster-config.yaml
-" > /usr/bin/reset-cluster.sh
-chmod +x /usr/bin/reset-cluster.sh
+" > /usr/bin/reset-cluster
+chmod +x /usr/bin/reset-cluster
