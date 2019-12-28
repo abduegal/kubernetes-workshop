@@ -28,3 +28,6 @@ chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 
 newgrp docker 
+
+mkdir -p /home/ubuntu/.kube
+kind get kubeconfig > /home/ubuntu/.kube/config
