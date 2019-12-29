@@ -31,7 +31,7 @@ mv ./kubectl /usr/local/bin/kubectl
 newgrp docker 
 
 mkdir -p /home/ubuntu/.kube
-kind get kubeconfig --name=omnicore > /home/ubuntu/.kube/config
+kind get kubeconfig --name=omnicore > /home/ubuntu/.kube/config 
 chmod -R 755 /home/ubuntu/.kube/config
 
 echo "
