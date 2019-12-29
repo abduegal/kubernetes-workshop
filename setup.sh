@@ -22,7 +22,7 @@ curl -Lo ./kind https://github.com/kubernetes-sigs/kind/releases/download/v0.6.1
 chmod +x ./kind
 mv ./kind /usr/bin/kind
 
-kind create cluster --name=omnicore --config=/etc/cluster-config.yaml
+kind create cluster --name=omnicore --config=/etc/cluster-config.yaml --wait 5m
 
 curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
 chmod +x ./kubectl
@@ -36,6 +36,6 @@ chmod -R 755 /home/ubuntu/.kube/config
 
 echo "
   kind delete cluster --name=omnicore
-  kind create cluster --name=omnicore --config=/etc/cluster-config.yaml
+  kind create cluster --name=omnicore --config=/etc/cluster-config.yaml --wait 5m
 " > /usr/bin/reset-cluster
 chmod +x /usr/bin/reset-cluster
