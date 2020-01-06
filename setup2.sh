@@ -1,4 +1,4 @@
-apt-get update && apt-get install curl
+apt-get update && apt-get -Y install curl
 
 DOCKERVERSION=18.03.1-ce
 curl -fsSLO https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKERVERSION}.tgz \
