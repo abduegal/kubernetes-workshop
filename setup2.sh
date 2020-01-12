@@ -18,9 +18,6 @@ nodes:
 " > /etc/cluster-config.yaml
 chmod -R 755 /etc/cluster-config.yaml
 
-groupadd docker
-usermod -aG docker ubuntu
-
 curl -Lo ./kind https://github.com/kubernetes-sigs/kind/releases/download/v0.6.1/kind-$(uname)-amd64
 chmod +x ./kind
 mv ./kind /usr/bin/kind
@@ -33,6 +30,6 @@ mv ./kubectl /usr/local/bin/kubectl
 
 newgrp docker 
 
-mkdir -p /home/ubuntu/.kube
-kind get kubeconfig --name=omnicore > /home/ubuntu/.kube/config 
-chmod -R 755 /home/ubuntu/.kube/config
+mkdir -p /root/.kube
+kind get kubeconfig --name=omnicore > /root/.kube/config 
+chmod -R 755 /root/.kube/config
