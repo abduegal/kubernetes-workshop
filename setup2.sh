@@ -6,6 +6,9 @@ curl -fsSLO https://download.docker.com/linux/static/stable/x86_64/docker-${DOCK
                  -C /usr/local/bin docker/docker \
   && rm docker-${DOCKERVERSION}.tgz
   
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+mv ./kubectl /usr/local/bin/kubectl
 
 echo "
 kind: Cluster
@@ -23,12 +26,6 @@ chmod +x ./kind
 mv ./kind /usr/bin/kind
 
 kind create cluster --name=omnicore --config=/etc/cluster-config.yaml --wait 5m
-
-curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
-chmod +x ./kubectl
-mv ./kubectl /usr/local/bin/kubectl
-
-newgrp docker 
 
 mkdir -p /root/.kube
 kind get kubeconfig --name=omnicore > /root/.kube/config 
